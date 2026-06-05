@@ -184,8 +184,10 @@
     .hero-content {
       position: relative; z-index: 1;
       text-align: center; color: var(--white);
-      padding: 0 24px;
+      padding: 48px 64px;
       animation: heroFade 0.9s ease-out 0.2s both;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 75%);
+      border-radius: 50%;
     }
     @keyframes heroFade {
       from { opacity: 0; transform: translateY(20px); }
