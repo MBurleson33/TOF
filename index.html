@@ -184,9 +184,18 @@
     .hero-content {
       position: relative; z-index: 1;
       text-align: center; color: var(--white);
-      padding: 80px 120px;
+      padding: 0 24px;
       animation: heroFade 0.9s ease-out 0.2s both;
-      background: radial-gradient(ellipse 800px 600px at center, rgba(0,0,0,0.65) 0%, transparent 100%);
+      isolation: isolate;
+    }
+    .hero-shadow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 110vw; height: 110vh;
+      background: radial-gradient(ellipse 55% 55% at 50% 50%, rgba(0,0,0,0.65) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: -1;
     }
     @keyframes heroFade {
       from { opacity: 0; transform: translateY(20px); }
@@ -647,6 +656,7 @@
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
+      <div class="hero-shadow"></div>
       <p class="hero-eyebrow">Oklahoma City's Turf Experts</p>
       <h1>Your Backyard,<br /><em>Elevated.</em></h1>
       <p class="hero-sub">Family-owned artificial turf installation for homes, businesses, and everything in between.</p>
