@@ -184,11 +184,19 @@
     .hero-content {
       position: relative; z-index: 1;
       text-align: center; color: var(--white);
-      padding: 48px 64px;
+      padding: 0 24px;
       animation: heroFade 0.9s ease-out 0.2s both;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 72%);
-      border-radius: 50%;
-      padding: 72px 96px;
+    }
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
     @keyframes heroFade {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
