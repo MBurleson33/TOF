@@ -117,6 +117,18 @@
 
     .btn-outline {
       display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      padding: 11px 22px; border-radius: var(--r);
+      border: 1.5px solid rgba(255,255,255,0.7);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.25); }
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 7px;
       background: transparent; color: var(--ink);
       padding: 11px 22px; border-radius: var(--r);
       border: 1.5px solid var(--border);
@@ -124,7 +136,7 @@
       letter-spacing: 0.06em; text-transform: uppercase;
       text-decoration: none; transition: border-color 0.2s, background 0.2s;
     }
-    .btn-outline:hover { border-color: var(--slate-200); background: var(--off-white); }
+    .btn-outline-dark:hover { border-color: var(--slate-200); background: var(--off-white); }
 
     .btn-green {
       display: inline-flex; align-items: center; gap: 7px;
@@ -167,7 +179,7 @@
     }
     .hero-bg::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.58) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.72) 100%);
     }
     .hero-content {
       position: relative; z-index: 1;
@@ -198,8 +210,9 @@
     .hero h1 em { font-style: italic; color: var(--green); }
     .hero-sub {
       font-size: 1.05rem; font-weight: 300;
-      color: rgba(255,255,255,0.82); line-height: 1.75;
+      color: rgba(255,255,255,0.9); line-height: 1.75;
       max-width: 480px; margin: 0 auto 36px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
     }
     .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
@@ -716,7 +729,7 @@
           <p class="label">What We Install</p>
           <h2 class="title">Turf for Every Application</h2>
         </div>
-        <a class="btn-outline" href="/turf">View All Services</a>
+        <a class="btn-outline-dark" href="/turf">View All Services</a>
       </div>
       <div class="services-grid reveal d1">
 
@@ -786,7 +799,7 @@
           <p class="label">Our Work</p>
           <h2 class="title">A Few Favorite Projects</h2>
         </div>
-        <a class="btn-outline" href="/gallery">Full Gallery</a>
+        <a class="btn-outline-dark" href="/gallery">Full Gallery</a>
       </div>
       <div class="mosaic reveal d1">
         <div class="mosaic-tile m1">
@@ -873,7 +886,7 @@
         </ul>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <a class="btn-primary" href="/turf-cleaning">Learn More</a>
-          <a class="btn-outline" href="/cleaning-products">View Products</a>
+          <a class="btn-outline-dark" href="/cleaning-products">View Products</a>
         </div>
       </div>
     </div>
