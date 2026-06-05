@@ -673,7 +673,7 @@
     </div>
     <div class="hero-right">
       <img
-        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=85"
+        src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/TOF-Hero.jpg"
         alt="Beautifully installed artificial turf backyard"
       />
       <div class="hero-tag">
@@ -714,7 +714,7 @@
   <section class="intro" id="about">
     <div class="container">
       <div class="intro-img reveal">
-        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=85" alt="TOF Turf backyard installation" />
+        <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Intro.jpg" alt="TOF Turf backyard installation" />
         <div class="intro-img-accent"></div>
         <div class="intro-badge">
           <strong>STI</strong>
@@ -827,22 +827,22 @@
       </div>
       <div class="mosaic reveal d1">
         <div class="mosaic-tile m1">
-          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&q=85" alt="Luxury pool and turf" />
+          <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%201.jpg" alt="Luxury pool and turf" />
         </div>
         <div class="mosaic-tile m2">
-          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=85" alt="Landscape installation" />
+          <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%202.jpg" alt="Landscape installation" />
         </div>
         <div class="mosaic-tile m3">
-          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=85" alt="Pet area" />
+          <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%203.jpg" alt="Pet area" />
         </div>
         <div class="mosaic-tile m4">
-          <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&q=85" alt="Playground" />
+          <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%204.jpg" alt="Playground" />
         </div>
         <div class="mosaic-tile m5">
-          <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=85" alt="Putting green" />
+          <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%205.jpg" alt="Putting green" />
         </div>
         <div class="mosaic-tile m6">
-          <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=700&q=85" alt="Sports field" />
+          <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%206.jpg" alt="Sports field" />
         </div>
       </div>
     </div>
@@ -879,8 +879,8 @@
         </div>
       </div>
       <div class="why-img-stack reveal d2">
-        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=700&q=85" alt="Turf installation in progress" />
-        <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=700&q=85" alt="Happy dog on turf" />
+        <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Why%20Image.jpg" alt="Turf installation in progress" />
+        <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Why%20TOF.jpg" alt="Happy dog on turf" />
       </div>
     </div>
   </section>
@@ -889,7 +889,7 @@
   <section class="cleaning" id="cleaning">
     <div class="container">
       <div class="cleaning-img reveal">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85" alt="Clean artificial turf" />
+        <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Turf%20Cleaning.jpg" alt="Clean artificial turf" />
         <div class="cleaning-img-badge">
           <strong>99.9%</strong>
           <span>Germs Killed<br/>by OxyTurf</span>
