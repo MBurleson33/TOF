@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | TOF Turf + Outdoors Oklahoma City</title>
+  <meta name="description" content="Artificial turf installation for landscapes, pet areas, putting greens, playgrounds, sports fields, and more. TOF Turf + Outdoors, Oklahoma City." />
+  <link rel="icon" type="image/webp" href="images/fav-icon.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF; --off-white: #F8F8F6; --border: #E4E3DF;
+      --slate-100: #8E8E8E; --slate-200: #5C5C5C; --ink: #161616;
+      --green: #008037; --green-mid: #006d2e;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Manrope', system-ui, sans-serif;
+      --nav-h: 72px; --r: 4px; --max: 1240px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 48px; gap: 40px; box-shadow: 0 2px 24px rgba(0,0,0,0.07); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-img { height: 48px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin-left: auto; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-200); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-links a.active { font-weight: 700; }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { font-size: 0.8rem; font-weight: 600; color: var(--slate-200); text-decoration: none; transition: color 0.2s; }
+    .nav-phone:hover { color: var(--ink); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 7px; background: var(--green); color: var(--white); padding: 7px 14px; border-radius: var(--r); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--green-mid); }
+    .mob-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; margin-left: auto; padding: 4px; }
+    .mob-menu-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+
+    /* PAGE HERO */
+    .page-hero {
+      margin-top: var(--nav-h);
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 48px;
+    }
+    .page-hero .container { max-width: var(--max); margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-100); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--slate-100); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--ink); }
+    .breadcrumb span { color: var(--border); }
+    .page-hero h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1.1; color: var(--ink); margin-bottom: 16px; }
+    .page-hero p { font-size: 1.05rem; color: var(--slate-200); max-width: 560px; line-height: 1.75; }
+
+    /* LAYOUT */
+    section { padding: 80px 48px; }
+    .container { max-width: var(--max); margin: 0 auto; }
+    .label { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--slate-100); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--border); }
+    h2.title { font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1.15; color: var(--ink); margin-bottom: 16px; }
+    .body-text { font-size: 1rem; color: var(--slate-200); line-height: 1.8; }
+
+    /* SERVICE ROWS */
+    .svc-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+      padding: 72px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .svc-row:nth-child(even) { background: var(--off-white); }
+    .svc-row:nth-child(even) .svc-row-img { order: 2; }
+    .svc-row:nth-child(even) .svc-row-text { order: 1; }
+    .svc-row-img { position: relative; }
+    .svc-row-img img { width: 100%; height: 400px; object-fit: cover; border-radius: 2px; display: block; }
+    .svc-row-num { position: absolute; top: -20px; left: -20px; font-family: var(--serif); font-size: 5rem; color: var(--border); line-height: 1; pointer-events: none; }
+    .svc-icon { width: 48px; height: 48px; background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .svc-icon svg { width: 24px; height: 24px; stroke: var(--green); fill: none; stroke-width: 1.5; }
+    .svc-row-text h2 { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.2rem); color: var(--ink); margin-bottom: 14px; line-height: 1.2; }
+    .svc-row-text p { font-size: 0.95rem; color: var(--slate-200); line-height: 1.8; margin-bottom: 16px; }
+    .svc-bullets { list-style: none; margin: 20px 0 28px; display: flex; flex-direction: column; gap: 10px; }
+    .svc-bullets li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.88rem; color: var(--slate-200); line-height: 1.5; }
+    .svc-bullets li::before { content: ''; width: 5px; height: 5px; background: var(--green); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+
+    /* CTA */
+    .green-band { background: var(--green); padding: 72px 48px; text-align: center; }
+    .green-band h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 16px; }
+    .green-band p { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 36px; line-height: 1.75; }
+    .green-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--green); padding: 15px 32px; border-radius: var(--r); font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: background 0.2s; }
+    .btn-white:hover { background: var(--off-white); }
+    .btn-white-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--white); padding: 15px 32px; border-radius: var(--r); border: 1.5px solid rgba(255,255,255,0.5); font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: border-color 0.2s; }
+    .btn-white-outline:hover { border-color: rgba(255,255,255,0.9); }
+
+    /* FOOTER */
+    footer { background: var(--ink); color: var(--white); padding: 56px 48px 28px; }
+    .footer-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-brand p { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin: 16px 0 24px; max-width: 260px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); transition: all 0.2s; }
+    .footer-social a:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
+    .footer-social svg { width: 15px; height: 15px; fill: currentColor; }
+    .footer-col h4 { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; font-weight: 600; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 9px; }
+    .footer-col ul li a { font-size: 0.83rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-contact-item { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 6px; }
+    .footer-contact-item a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--white); }
+    .footer-bottom { max-width: var(--max); margin: 24px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      nav { padding: 0 24px; }
+      .page-hero { padding: 56px 24px; }
+      .svc-row { grid-template-columns: 1fr; gap: 40px; padding: 56px 24px; }
+      .svc-row:nth-child(even) .svc-row-img { order: 0; }
+      .svc-row:nth-child(even) .svc-row-text { order: 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions { display: none; }
+      .mob-menu-btn { display: flex; }
+      .svc-row-img img { height: 260px; }
+      .svc-row-num { font-size: 3.5rem; top: -12px; left: -8px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .green-band { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="images/TOF-Logo%20alt.webp" alt="TOF Turf + Outdoors" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="gallery.html">Projects</a></li>
+      <li><a href="cleaning.html">Turf Care</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-phone" href="tel:9185216958">918-521-6958</a>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Services</span>
+      </div>
+      <h1>Turf for Every<br /><em style="font-style:italic; color:var(--green);">Application.</em></h1>
+      <p>From backyard landscapes to professional athletic fields — we install Synthetic Turf International products for every use case, with factory-trained installers on every job.</p>
+    </div>
+  </div>
+
+  <!-- SERVICE ROWS -->
+  <div class="svc-row reveal">
+    <div class="svc-row-img">
+      <div class="svc-row-num">01</div>
+      <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%202.jpg" alt="Landscape turf" />
+    </div>
+    <div class="svc-row-text">
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <h2>Landscapes</h2>
+      <p>Transform your yard into a lush, low-maintenance outdoor living space. Our landscape turf looks and feels like real grass — without the mowing, watering, or fertilizing.</p>
+      <p>Whether it's a front yard, backyard, rooftop, or commercial property, we design and install turf that fits your space perfectly.</p>
+      <ul class="svc-bullets">
+        <li>No mowing, no watering, no fertilizing</li>
+        <li>Stays green year-round in Oklahoma's climate</li>
+        <li>Custom shapes and edges to fit any space</li>
+        <li>Safe for kids, pets, and bare feet</li>
+      </ul>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+  </div>
+
+  <div class="svc-row reveal">
+    <div class="svc-row-img">
+      <div class="svc-row-num">02</div>
+      <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%203.jpg" alt="Pet turf" />
+    </div>
+    <div class="svc-row-text">
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div>
+      <h2>Pet Turf</h2>
+      <p>Give your dogs a dedicated outdoor space that's durable, drainage-friendly, and easy to clean. Our pet turf is engineered specifically for high-traffic dog runs and pet areas.</p>
+      <p>No more muddy paws, dead grass, or digging. OxyTurf cleaning products keep it fresh and odor-free year-round.</p>
+      <ul class="svc-bullets">
+        <li>Engineered drainage for pet waste</li>
+        <li>Antimicrobial and odor-resistant</li>
+        <li>Durable blades that resist digging and wear</li>
+        <li>Compatible with OxyTurf cleaning system</li>
+      </ul>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+  </div>
+
+  <div class="svc-row reveal">
+    <div class="svc-row-img">
+      <div class="svc-row-num">03</div>
+      <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%205.jpg" alt="Putting green" />
+    </div>
+    <div class="svc-row-text">
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="19" r="2"/><path d="M12 17V7"/><path d="M5 8l7-6 7 6"/></svg></div>
+      <h2>Putting Greens</h2>
+      <p>Play more golf without leaving home. We build custom putting greens using tour-quality STI turf, with contours, fringe, and hole placements designed to your spec.</p>
+      <p>Trusted by Top Golf facilities and private estates — the same product, installed in your backyard or office.</p>
+      <ul class="svc-bullets">
+        <li>Custom hole placement and contour design</li>
+        <li>STI turf used by Top Golf and pro facilities</li>
+        <li>Fringe, chipping areas, and tee lines available</li>
+        <li>Any size — from small office greens to full multi-hole layouts</li>
+      </ul>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+  </div>
+
+  <div class="svc-row reveal">
+    <div class="svc-row-img">
+      <div class="svc-row-num">04</div>
+      <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%204.jpg" alt="Playground turf" />
+    </div>
+    <div class="svc-row-text">
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h2>Playground Turf</h2>
+      <p>Create safe, cushioned play surfaces for schools, daycares, parks, and private backyards. Our playground turf meets safety standards and provides impact absorption to protect kids from falls.</p>
+      <ul class="svc-bullets">
+        <li>Shock-absorbing padding available beneath turf</li>
+        <li>ADA-compliant surface options</li>
+        <li>Splinter-free, mud-free, and easy to clean</li>
+        <li>Installed for schools, daycares, churches, and homes</li>
+      </ul>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+  </div>
+
+  <div class="svc-row reveal">
+    <div class="svc-row-img">
+      <div class="svc-row-num">05</div>
+      <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%206.jpg" alt="Sports turf" />
+    </div>
+    <div class="svc-row-text">
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+      <h2>Sports Turf</h2>
+      <p>Performance turf for competitive and recreational sports. We install fields for football, baseball, soccer, lacrosse, and more — engineered for the demands of athletic play.</p>
+      <ul class="svc-bullets">
+        <li>Football, baseball, soccer, lacrosse, and more</li>
+        <li>Consistent surface for year-round play</li>
+        <li>Line marking and field customization available</li>
+        <li>Built to NCAA and professional specifications</li>
+      </ul>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+  </div>
+
+  <div class="svc-row reveal">
+    <div class="svc-row-img">
+      <div class="svc-row-num">06</div>
+      <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Mosaic%20Tile%201.jpg" alt="Specialty turf" />
+    </div>
+    <div class="svc-row-text">
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+      <h2>Specialty &amp; Custom</h2>
+      <p>If it involves turf, we've probably done it. Batting cages, golf tee lines, rooftop terraces, commercial lobbies, hotel pools, event spaces — we handle any custom application.</p>
+      <ul class="svc-bullets">
+        <li>Batting cages and golf tee lines</li>
+        <li>Rooftops, balconies, and terraces</li>
+        <li>Commercial and hospitality spaces</li>
+        <li>Custom shapes, colors, and logos available</li>
+      </ul>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="green-band">
+    <h2>Not Sure What You Need?</h2>
+    <p>Give us a call — we'll walk you through the options and put together a free estimate.</p>
+    <div class="green-actions">
+      <a class="btn-white" href="tel:9185216958">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.17 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.16a16 16 0 006.29 6.29l1.42-1.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        918-521-6958
+      </a>
+      <a class="btn-white-outline" href="mailto:bfassio@tofturfandoutdoors.com">Email Us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" style="display:inline-block;">
+          <img src="images/TOF-Logo.webp" alt="TOF Turf + Outdoors" style="height:52px; width:auto; display:block;" />
+        </a>
+        <p>Family-owned artificial turf installation serving Oklahoma City and surrounding areas.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="1.8" stroke="currentColor" fill="none"/><circle cx="12" cy="12" r="4" stroke-width="1.8" stroke="currentColor" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Projects &amp; Gallery</a></li>
+          <li><a href="cleaning.html">Turf Care</a></li>
+          <li><a href="article.html">Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Get a Free Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p class="footer-contact-item">13505 Railway Dr. Unit H<br />Oklahoma City, OK 73114</p>
+        <p class="footer-contact-item"><a href="tel:9185216958">918-521-6958</a></p>
+        <p class="footer-contact-item"><a href="mailto:bfassio@tofturfandoutdoors.com">bfassio@tofturfandoutdoors.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TOF Turf + Outdoors. All rights reserved.</p>
+      <p>created by <a href="https://thirtythreevisuals.com" target="_blank">thirtythree visuals</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
