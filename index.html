@@ -22,8 +22,8 @@
       --slate-200:  #5C5C5C;
       --slate-300:  #2E2E2E;
       --ink:        #161616;
-      --green:      #7ED957;
-      --green-mid:  #6BC947;
+      --green:      #008037;
+      --green-mid:  #006d2e;
       --gold:       #C49A2A;
       --gold-light: #E0B740;
       --serif:      'Playfair Display', Georgia, serif;
@@ -107,7 +107,7 @@
 
     .btn-primary {
       display: inline-flex; align-items: center; gap: 7px;
-      background: var(--green); color: var(--ink);
+      background: var(--green); color: var(--white);
       padding: 11px 22px; border-radius: var(--r);
       font-size: 0.78rem; font-weight: 700;
       letter-spacing: 0.06em; text-transform: uppercase;
@@ -128,7 +128,7 @@
 
     .btn-green {
       display: inline-flex; align-items: center; gap: 7px;
-      background: var(--green); color: var(--ink);
+      background: var(--green); color: var(--white);
       padding: 14px 28px; border-radius: var(--r);
       font-size: 0.82rem; font-weight: 700;
       letter-spacing: 0.05em; text-transform: uppercase;
@@ -149,94 +149,77 @@
     /* ─── HERO ─── */
     .hero {
       margin-top: var(--nav-h);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: calc(100vh - var(--nav-h));
+      position: relative;
+      height: calc(100vh - var(--nav-h));
+      min-height: 580px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
     }
-
-    .hero-left {
-      background: var(--off-white);
-      display: flex; flex-direction: column;
-      justify-content: center;
-      padding: 80px 72px 80px 64px;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://raw.githubusercontent.com/MBurleson33/TOF/main/images/TOF-Hero.jpg') center/cover no-repeat;
+      transform: scale(1.04);
+      animation: heroZoom 10s ease-out forwards;
     }
-
+    @keyframes heroZoom {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.0); }
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.58) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      text-align: center; color: var(--white);
+      padding: 0 24px;
+      animation: heroFade 0.9s ease-out 0.2s both;
+    }
+    @keyframes heroFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
     .hero-eyebrow {
       font-size: 0.68rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--green); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
     }
-    .hero-eyebrow::before {
-      content: ''; display: block;
-      width: 28px; height: 1.5px; background: var(--green);
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; display: block; width: 32px; height: 1.5px; background: var(--green);
     }
-
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(2.6rem, 4vw, 4.2rem);
-      line-height: 1.1; color: var(--ink);
-      margin-bottom: 24px;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.08; color: var(--white);
+      margin-bottom: 20px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.25);
     }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--green);
-    }
-
+    .hero h1 em { font-style: italic; color: var(--green); }
     .hero-sub {
       font-size: 1.05rem; font-weight: 300;
-      color: var(--slate-200); line-height: 1.75;
-      max-width: 420px; margin-bottom: 40px;
+      color: rgba(255,255,255,0.82); line-height: 1.75;
+      max-width: 480px; margin: 0 auto 36px;
     }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    .hero-proof {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      display: flex; gap: 32px; flex-wrap: wrap;
+    .hero-bar {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      display: flex; justify-content: center; gap: 56px;
+      padding: 20px 48px; flex-wrap: wrap;
     }
-
-    .hero-proof-item strong {
-      display: block; font-size: 1.5rem;
-      font-family: var(--serif); color: var(--ink);
+    .hero-bar-stat { text-align: center; color: var(--white); }
+    .hero-bar-stat strong {
+      display: block; font-family: var(--serif);
+      font-size: 1.3rem; line-height: 1;
     }
-    .hero-proof-item span {
-      font-size: 0.72rem; letter-spacing: 0.05em;
-      color: var(--slate-100); text-transform: uppercase;
+    .hero-bar-stat span {
+      font-size: 0.65rem; letter-spacing: 0.12em;
+      text-transform: uppercase; opacity: 0.65; margin-top: 3px; display: block;
     }
-
-    .hero-right {
-      position: relative; overflow: hidden;
-    }
-    .hero-right img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      transition: transform 8s ease;
-    }
-    .hero-right:hover img { transform: scale(1.03); }
-
-    .hero-tag {
-      position: absolute; bottom: 32px; left: 32px;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      border-radius: var(--r);
-      padding: 16px 20px;
-      display: flex; align-items: center; gap: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-    }
-    .hero-tag-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--green); flex-shrink: 0;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(26,92,50,0.4); }
-      50%      { box-shadow: 0 0 0 8px rgba(26,92,50,0); }
-    }
-    .hero-tag p { font-size: 0.8rem; font-weight: 600; color: var(--ink); }
-    .hero-tag span { font-size: 0.7rem; color: var(--slate-100); }
 
     /* ─── TRUST BAR ─── */
     .trust-bar {
@@ -495,10 +478,10 @@
     .green-band h2 {
       font-family: var(--serif);
       font-size: clamp(2rem, 4vw, 3.2rem);
-      color: var(--ink); margin-bottom: 16px;
+      color: var(--white); margin-bottom: 16px;
     }
     .green-band p {
-      font-size: 1rem; color: rgba(0,0,0,0.6);
+      font-size: 1rem; color: rgba(255,255,255,0.75);
       max-width: 480px; margin: 0 auto 36px;
       line-height: 1.75;
     }
@@ -506,22 +489,22 @@
 
     .btn-white {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--ink); color: var(--white);
+      background: var(--white); color: var(--green);
       padding: 15px 32px; border-radius: var(--r);
       font-weight: 700; font-size: 0.9rem;
       letter-spacing: 0.03em; text-decoration: none;
       transition: background 0.2s;
     }
-    .btn-white:hover { background: var(--slate-300); }
+    .btn-white:hover { background: var(--off-white); }
     .btn-white-outline {
       display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--ink);
+      background: transparent; color: var(--white);
       padding: 15px 32px; border-radius: var(--r);
-      border: 1.5px solid rgba(0,0,0,0.3);
+      border: 1.5px solid rgba(255,255,255,0.5);
       font-weight: 500; font-size: 0.9rem;
       text-decoration: none; transition: border-color 0.2s;
     }
-    .btn-white-outline:hover { border-color: rgba(0,0,0,0.6); }
+    .btn-white-outline:hover { border-color: rgba(255,255,255,0.9); }
 
     /* ─── FOOTER ─── */
     footer {
@@ -594,9 +577,7 @@
     @media (max-width: 1024px) {
       nav { padding: 0 24px; }
       section { padding: 72px 24px; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 56px 32px; }
-      .hero-right { height: 420px; }
+      .hero-bar { gap: 28px; padding: 16px 24px; }
       .intro .container, .why .container, .cleaning .container { grid-template-columns: 1fr; gap: 48px; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
@@ -608,8 +589,10 @@
     @media (max-width: 768px) {
       .nav-links, .nav-actions { display: none; }
       .mob-menu-btn { display: flex; }
-      .hero-left { padding: 40px 24px; }
       .hero h1 { font-size: 2.4rem; }
+      .hero-bar { gap: 20px; }
+      .hero-bar-stat { display: none; }
+      .hero-bar-stat:nth-child(-n+2) { display: block; }
       .services-grid { grid-template-columns: 1fr; }
       .why-features { grid-template-columns: 1fr; }
       .mosaic { grid-template-columns: 1fr; }
@@ -648,41 +631,21 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-left">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
       <p class="hero-eyebrow">Oklahoma City's Turf Experts</p>
       <h1>Your Backyard,<br /><em>Elevated.</em></h1>
-      <p class="hero-sub">Family-owned artificial turf installation for homes, businesses, and everything in between. From putting greens to pet areas — we build the outdoor spaces you love.</p>
+      <p class="hero-sub">Family-owned artificial turf installation for homes, businesses, and everything in between.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="#contact">Get a Free Quote</a>
         <a class="btn-outline" href="#projects">See Our Work</a>
       </div>
-      <div class="hero-proof">
-        <div class="hero-proof-item">
-          <strong>STI</strong>
-          <span>Certified Dealer</span>
-        </div>
-        <div class="hero-proof-item">
-          <strong>Free</strong>
-          <span>Estimates</span>
-        </div>
-        <div class="hero-proof-item">
-          <strong>OKC</strong>
-          <span>Family-Owned</span>
-        </div>
-      </div>
     </div>
-    <div class="hero-right">
-      <img
-        src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/TOF-Hero.jpg"
-        alt="Beautifully installed artificial turf backyard"
-      />
-      <div class="hero-tag">
-        <div class="hero-tag-dot"></div>
-        <div>
-          <p>Accepting New Clients</p>
-          <span>Free estimates available now</span>
-        </div>
-      </div>
+    <div class="hero-bar">
+      <div class="hero-bar-stat"><strong>STI</strong><span>Certified Dealer</span></div>
+      <div class="hero-bar-stat"><strong>Free</strong><span>Estimates</span></div>
+      <div class="hero-bar-stat"><strong>OKC</strong><span>Family-Owned</span></div>
+      <div class="hero-bar-stat"><strong>48hr</strong><span>Supply Delivery</span></div>
     </div>
   </div>
 
