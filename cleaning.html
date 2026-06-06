@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turf Care & Cleaning | TOF Turf + Outdoors Oklahoma City</title>
+  <meta name="description" content="Professional turf cleaning services and OxyTurf cleaning products from TOF Turf + Outdoors in Oklahoma City. Keep your turf looking like day one." />
+  <link rel="icon" type="image/webp" href="images/fav-icon.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF; --off-white: #F8F8F6; --border: #E4E3DF;
+      --slate-100: #8E8E8E; --slate-200: #5C5C5C; --ink: #161616;
+      --green: #008037; --green-mid: #006d2e;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Manrope', system-ui, sans-serif;
+      --nav-h: 72px; --r: 4px; --max: 1240px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 48px; gap: 40px; box-shadow: 0 2px 24px rgba(0,0,0,0.07); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-img { height: 48px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin-left: auto; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-200); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); font-weight: 700; }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { font-size: 0.8rem; font-weight: 600; color: var(--slate-200); text-decoration: none; transition: color 0.2s; }
+    .nav-phone:hover { color: var(--ink); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 7px; background: var(--green); color: var(--white); padding: 7px 14px; border-radius: var(--r); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--green-mid); }
+    .btn-primary-lg { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: var(--white); padding: 13px 28px; border-radius: var(--r); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+    .btn-primary-lg:hover { background: var(--green-mid); }
+    .btn-outline-dark { display: inline-flex; align-items: center; gap: 7px; background: transparent; color: var(--ink); padding: 13px 28px; border-radius: var(--r); border: 1.5px solid var(--border); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline-dark:hover { border-color: var(--slate-200); background: var(--off-white); }
+    .mob-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; margin-left: auto; padding: 4px; }
+    .mob-menu-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+
+    /* PAGE HERO */
+    .page-hero { margin-top: var(--nav-h); background: var(--off-white); border-bottom: 1px solid var(--border); padding: 72px 48px; }
+    .page-hero .container { max-width: var(--max); margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-100); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--slate-100); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--ink); }
+    .breadcrumb span { color: var(--border); }
+    .breadcrumb span:last-child { color: rgba(0,128,55,0.4); font-weight: 600; }
+    .page-hero h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1.1; color: var(--ink); margin-bottom: 16px; }
+    .page-hero p { font-size: 1.05rem; color: var(--slate-200); max-width: 560px; line-height: 1.75; }
+
+    /* LAYOUT */
+    .container { max-width: var(--max); margin: 0 auto; }
+    .label { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--slate-100); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--border); }
+    h2.title { font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1.15; color: var(--ink); margin-bottom: 18px; }
+    .body-text { font-size: 1rem; color: var(--slate-200); line-height: 1.8; }
+
+    /* SERVICES SECTION */
+    .services-section { padding: 80px 48px; background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .services-img { position: relative; }
+    .services-img img { width: 100%; height: 460px; object-fit: cover; display: block; border-radius: 2px; }
+    .services-img-badge { position: absolute; bottom: 24px; right: -24px; background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 20px 24px; }
+    .services-img-badge strong { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--green); }
+    .services-img-badge span { font-size: 0.7rem; color: var(--slate-100); text-transform: uppercase; letter-spacing: 0.08em; }
+    .cleaning-list { list-style: none; margin: 20px 0 28px; display: flex; flex-direction: column; gap: 12px; }
+    .cleaning-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.92rem; color: var(--slate-200); line-height: 1.6; }
+    .cleaning-list li::before { content: ''; width: 5px; height: 5px; background: var(--green); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+
+    /* HOW IT WORKS */
+    .how-section { padding: 80px 48px; background: var(--off-white); }
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); margin-top: 48px; }
+    .how-card { background: var(--white); padding: 32px 28px; }
+    .how-num { font-family: var(--serif); font-size: 2.5rem; color: var(--border); line-height: 1; margin-bottom: 16px; }
+    .how-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .how-card p { font-size: 0.82rem; color: var(--slate-200); line-height: 1.65; }
+
+    /* PRODUCTS SECTION */
+    .products-section { padding: 80px 48px; background: var(--white); }
+    .products-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px; }
+    .products-header p.note { font-size: 0.82rem; color: var(--slate-100); font-style: italic; }
+
+    /* FILTER TABS */
+    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+    .filter-btn { padding: 7px 18px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; background: var(--off-white); border: 1px solid var(--border); color: var(--slate-200); transition: all 0.2s; }
+    .filter-btn:hover { border-color: var(--slate-200); color: var(--ink); }
+    .filter-btn.active { background: var(--green); border-color: var(--green); color: var(--white); }
+
+    .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .product-card { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: box-shadow 0.2s; }
+    .product-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .product-img { background: var(--white); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden; }
+    .product-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .product-info { padding: 18px 20px; }
+    .product-category { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-100); margin-bottom: 8px; }
+    .product-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 10px; }
+    .product-price { font-family: var(--serif); font-size: 1.2rem; color: var(--green); font-weight: 700; margin-bottom: 14px; }
+    .product-cta { display: block; text-align: center; background: var(--ink); color: var(--white); padding: 10px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: var(--r); transition: background 0.2s; }
+    .product-cta:hover { background: var(--slate-300); }
+
+    /* Article link */
+    .article-link-section { padding: 64px 48px; background: var(--off-white); border-top: 1px solid var(--border); }
+    .article-link-inner { max-width: var(--max); margin: 0 auto; }
+
+    /* CTA */
+    .green-band { background: var(--green); padding: 72px 48px; text-align: center; }
+    .green-band h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 16px; }
+    .green-band p { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 36px; line-height: 1.75; }
+    .green-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--green); padding: 15px 32px; border-radius: var(--r); font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: background 0.2s; }
+    .btn-white:hover { background: var(--off-white); }
+    .btn-white-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--white); padding: 15px 32px; border-radius: var(--r); border: 1.5px solid rgba(255,255,255,0.5); font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: border-color 0.2s; }
+    .btn-white-outline:hover { border-color: rgba(255,255,255,0.9); }
+
+    /* FOOTER */
+    footer { background: var(--ink); color: var(--white); padding: 56px 48px 28px; }
+    .footer-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-brand p { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin: 16px 0 24px; max-width: 260px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); transition: all 0.2s; }
+    .footer-social a:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
+    .footer-social svg { width: 15px; height: 15px; fill: currentColor; }
+    .footer-col h4 { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; font-weight: 600; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 9px; }
+    .footer-col ul li a { font-size: 0.83rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-contact-item { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 6px; }
+    .footer-contact-item a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--white); }
+    .footer-bottom { max-width: var(--max); margin: 24px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      nav { padding: 0 24px; }
+      .page-hero { padding: 56px 24px; }
+      .services-section, .how-section, .products-section, .article-link-section { padding: 56px 24px; }
+      .services-grid { grid-template-columns: 1fr; gap: 48px; }
+      .services-img-badge { right: 12px; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions { display: none; }
+      .mob-menu-btn { display: flex; }
+      .how-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .green-band { padding: 56px 24px; }
+    }
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="images/TOF-Logo%20alt.webp" alt="TOF Turf + Outdoors" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Projects</a></li>
+      <li><a href="cleaning.html" class="active">Turf Care</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-phone" href="tel:9185216958">918-521-6958</a>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Turf Care</span>
+      </div>
+      <h1>Keep It Looking Like<br /><em style="font-style:italic; color:var(--green);">Day One.</em></h1>
+      <p>Artificial turf is low-maintenance — but not no-maintenance. Professional cleaning services and DIY products to keep your turf fresh, clean, and germ-free year-round.</p>
+    </div>
+  </div>
+
+  <!-- PROFESSIONAL CLEANING -->
+  <div class="services-section">
+    <div class="container">
+      <div class="services-grid">
+        <div class="services-img reveal">
+          <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/Turf%20Cleaning.jpg" alt="Turf cleaning service" />
+          <div class="services-img-badge">
+            <strong>99.9%</strong>
+            <span>Germs Killed<br/>by OxyTurf</span>
+          </div>
+        </div>
+        <div class="reveal d2">
+          <p class="label">Professional Service</p>
+          <h2 class="title">We Come to You.</h2>
+          <p class="body-text">Our trained cleaning professionals use OxyTurf — a biodegradable, hydrogen peroxide-based formula that kills 99.9% of germs without the harsh chemicals found in bleach or ammonia-based cleaners.</p>
+          <p class="body-text" style="margin-top:14px;">Whether you want a one-time deep clean or a recurring service plan, we'll keep your turf looking and smelling like new.</p>
+          <ul class="cleaning-list">
+            <li>One-time deep clean or recurring monthly / bi-weekly plans</li>
+            <li>Safe for kids, pets, and plants — no bleach, no ammonia</li>
+            <li>Proven effective against H1N1, influenza, and Staph</li>
+            <li>Poolside, dog runs, play areas, sports fields, and more</li>
+            <li>Brushing, de-compaction, and debris removal included</li>
+          </ul>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn-primary-lg" href="tel:9185216958">Call to Schedule</a>
+            <a class="btn-outline-dark" href="mailto:bfassio@tofturfandoutdoors.com">Email Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <div class="container">
+      <p class="label">The Process</p>
+      <h2 class="title">How We Clean Your Turf</h2>
+      <div class="how-grid reveal">
+        <div class="how-card">
+          <div class="how-num">01</div>
+          <h3>Debris Removal</h3>
+          <p>We sweep and remove leaves, twigs, pet waste, and any surface debris that can trap bacteria and cause odors.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">02</div>
+          <h3>Brushing</h3>
+          <p>We brush and lift the turf fibers to prevent matting and restore the natural upright look of your turf blades.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">03</div>
+          <h3>OxyTurf Application</h3>
+          <p>We apply OxyTurf cleaner throughout the turf, penetrating deep to kill 99.9% of germs and eliminate odors at the source.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">04</div>
+          <h3>Final Rinse</h3>
+          <p>A thorough rinse removes all residue, leaving your turf fresh, clean, and safe for immediate use by kids and pets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="products-section">
+    <div class="container">
+      <div class="products-header">
+        <div>
+          <p class="label">OxyTurf Products</p>
+          <h2 class="title">Prefer to Do It Yourself?</h2>
+          <p class="body-text" style="max-width:500px;">We carry the full OxyTurf line and can deliver to your door within 48 hours. Call or email to place an order.</p>
+        </div>
+        <p class="note">Contact us to order — delivered within 48 hrs</p>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+        <button class="filter-btn" onclick="filterProducts('cleaner', this)">Cleaner &amp; Deodorizer</button>
+        <button class="filter-btn" onclick="filterProducts('sprayer', this)">Sprayers</button>
+        <button class="filter-btn" onclick="filterProducts('bundle', this)">Bundles</button>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+
+        <div class="product-card" data-category="cleaner">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671124696809-VIB7TQY6QBQLCW1DRYRK/OxyTurf+Trigger+Spray+Box.jpg" alt="32oz Trigger Spray OxyTurf" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Cleaner & Deodorizer</p>
+            <p class="product-name">Case of 32 oz. Trigger Spray OxyTurf — Turf Cleaner & Pet Odor Eliminator (6-Pack)</p>
+            <p class="product-price">$155.95</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="cleaner">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671124878193-JKPMZ1QJQ1V9NKIKL8VZ/OxyTurf+1+Gal+Box+Pet.jpg" alt="1-Gal OxyTurf Pet Odor Eliminator" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Cleaner & Deodorizer</p>
+            <p class="product-name">Case of 1-Gal Rounds OxyTurf Cleaner & Disinfectant — Pet Odor Eliminator (4-Pack)</p>
+            <p class="product-price">$259.95</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="cleaner">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671124878193-JKPMZ1QJQ1V9NKIKL8VZ/OxyTurf+1+Gal+Box+Pet.jpg" alt="1-Gal OxyTurf Cleaner and Deodorizer" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Cleaner & Deodorizer</p>
+            <p class="product-name">Case of 1-Gal Rounds OxyTurf Cleaner and Deodorizer (4-Pack)</p>
+            <p class="product-price">$259.95</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="cleaner">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671124956388-BSRG7BHWZQ8NXMLP4RPW/OxyTurf+1+Gal.jpg" alt="1-Gal OxyTurf" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Cleaner & Deodorizer</p>
+            <p class="product-name">1-Gal Round OxyTurf Turf Cleaner and Deodorizer</p>
+            <p class="product-price">$64.95</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="sprayer">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671125100000-BACKPACK/Backpack+Sprayer.jpg" alt="4-Gallon Backpack Sprayer" onerror="this.style.display='none'" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Sprayer</p>
+            <p class="product-name">4-Gallon Backpack Sprayer</p>
+            <p class="product-price">$227.45</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="sprayer">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671125200000-EZPUMP/EZ-Pump.jpg" alt=".5 Gal EZ-Pump Sprayer" onerror="this.style.display='none'" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Sprayer</p>
+            <p class="product-name">.5 Gal. EZ-Pump Sprayer For OxyTurf Cleaner & Pet Odor Eliminator</p>
+            <p class="product-price">$19.45</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="bundle">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671125300000-BUNDLE/Bundle.jpg" alt="1-Gal + EZ Pump Bundle" onerror="this.style.display='none'" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Bundle</p>
+            <p class="product-name">1-Gal Round & EZ Pump Sprayer Bundle OxyTurf Turf Cleaner & Odor Eliminator</p>
+            <p class="product-price">$84.45</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="cleaner">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671125400000-DISINFECTANT/Disinfectant.jpg" alt="1-Gal OxyTurf Disinfectant" onerror="this.style.display='none'" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Cleaner & Disinfectant</p>
+            <p class="product-name">1-Gal Round OxyTurf Turf Cleaner Disinfectant and Pet Odor Eliminator</p>
+            <p class="product-price">$64.95</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="bundle">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671125500000-BATTERY/Battery-Sprayer.jpg" alt="Battery Powered Sprayer" onerror="this.style.display='none'" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Bundle</p>
+            <p class="product-name">1-Gal Battery-Powered Sprayer OxyTurf Turf Cleaner Disinfectant and Pet Odor Eliminator</p>
+            <p class="product-price">$77.95</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="cleaner">
+          <div class="product-img">
+            <img src="https://images.squarespace-cdn.com/content/v1/6399c6559ae91c5d0498ba30/1671125600000-TRIGGER/Trigger.jpg" alt="32oz Trigger Sprayer" onerror="this.style.display='none'" />
+          </div>
+          <div class="product-info">
+            <p class="product-category">Cleaner & Disinfectant</p>
+            <p class="product-name">32 Oz OxyTurf Trigger Sprayer Turf Cleaner Disinfectant and Pet Odor Eliminator</p>
+            <p class="product-price">$25.35</p>
+            <a class="product-cta" href="tel:9185216958">Call to Order</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE LINK -->
+  <div class="article-link-section">
+    <div class="article-link-inner">
+      <a href="article.html" style="display:grid; grid-template-columns:220px 1fr; gap:0; background:var(--white); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; text-decoration:none; transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+        <div style="background:var(--green); display:flex; align-items:center; justify-content:center; padding:32px 24px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div style="padding:28px 36px;">
+          <span style="display:inline-block; background:var(--off-white); border:1px solid var(--border); border-radius:100px; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--slate-200); padding:4px 12px; margin-bottom:12px;">Environmental</span>
+          <h3 style="font-family:var(--serif); font-size:1.3rem; color:var(--ink); line-height:1.2; margin-bottom:10px;">The Environmental Advantages of Artificial Turf</h3>
+          <p style="font-size:0.85rem; color:var(--slate-200); line-height:1.65; margin-bottom:16px;">Learn why artificial turf saves water, reduces chemicals, and is a smart long-term choice for Oklahoma homeowners.</p>
+          <span style="display:inline-flex; align-items:center; gap:6px; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green);">
+            Read Article
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="green-band">
+    <h2>Need a Professional Cleaning?</h2>
+    <p>Give us a call — we'll schedule a visit and get your turf looking like new.</p>
+    <div class="green-actions">
+      <a class="btn-white" href="tel:9185216958">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.17 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.16a16 16 0 006.29 6.29l1.42-1.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        918-521-6958
+      </a>
+      <a class="btn-white-outline" href="mailto:bfassio@tofturfandoutdoors.com">Email Us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" style="display:inline-block;">
+          <img src="images/TOF-Logo.webp" alt="TOF Turf + Outdoors" style="height:52px; width:auto; display:block;" />
+        </a>
+        <p>Family-owned artificial turf installation serving Oklahoma City and surrounding areas.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="1.8" stroke="currentColor" fill="none"/><circle cx="12" cy="12" r="4" stroke-width="1.8" stroke="currentColor" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Projects &amp; Gallery</a></li>
+          <li><a href="cleaning.html">Turf Care</a></li>
+          <li><a href="article.html">Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p class="footer-contact-item">13505 Railway Dr. Unit H<br />Oklahoma City, OK 73114</p>
+        <p class="footer-contact-item"><a href="tel:9185216958">918-521-6958</a></p>
+        <p class="footer-contact-item"><a href="mailto:bfassio@tofturfandoutdoors.com">bfassio@tofturfandoutdoors.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TOF Turf + Outdoors. All rights reserved.</p>
+      <p>created by <a href="https://thirtythreevisuals.com" target="_blank">thirtythree visuals</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Product filter
+    function filterProducts(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.product-card').forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
