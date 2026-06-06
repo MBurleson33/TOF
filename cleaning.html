@@ -92,14 +92,15 @@
     .filter-btn.active { background: var(--green); border-color: var(--green); color: var(--white); }
 
     .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .product-card { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: box-shadow 0.2s; }
+    .product-card { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: box-shadow 0.2s; display: flex; flex-direction: column; }
     .product-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
     .product-img { background: var(--white); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden; }
     .product-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
-    .product-info { padding: 18px 20px; }
+    .product-info { padding: 18px 20px; display: flex; flex-direction: column; flex: 1; }
     .product-category { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-100); margin-bottom: 8px; }
     .product-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 10px; }
-    .product-price { font-family: var(--serif); font-size: 1.2rem; color: var(--green); font-weight: 700; margin-bottom: 14px; }
+    .product-desc { font-size: 0.78rem; color: var(--slate-200); line-height: 1.6; margin-bottom: 10px; flex: 1; }
+    .product-price { font-family: var(--serif); font-size: 1.2rem; color: var(--green); font-weight: 700; margin-bottom: 14px; margin-top: auto; padding-top: 12px; }
     .product-cta { display: block; text-align: center; background: var(--ink); color: var(--white); padding: 10px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: var(--r); transition: background 0.2s; }
     .product-cta:hover { background: var(--slate-300); }
 
@@ -291,7 +292,7 @@
           <div class="product-info">
             <p class="product-category">Cleaner & Deodorizer</p>
             <p class="product-name">Case of 32 oz. Trigger Spray OxyTurf — Turf Cleaner & Pet Odor Eliminator (6-Pack)</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
+            <p class="product-desc">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
             <p class="product-price">$155.95</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -299,12 +300,12 @@
 
         <div class="product-card" data-category="cleaner">
           <div class="product-img">
-            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/cleaner/case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d56-b786-e7222d5c4d9e_1800x1800_0007_case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d (2).webp" alt="1-Gal OxyTurf Pet Odor Eliminator" />
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/cleaner/case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d56-b786-e7222d5c4d9e_1800x1800_0007_case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d(2).webp" alt="1-Gal OxyTurf Pet Odor Eliminator" />
           </div>
           <div class="product-info">
             <p class="product-category">Cleaner & Deodorizer</p>
             <p class="product-name">Case of 1-Gal Rounds OxyTurf Cleaner & Disinfectant — Pet Odor Eliminator (4-Pack)</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
+            <p class="product-desc">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
             <p class="product-price">$259.95</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -312,12 +313,12 @@
 
         <div class="product-card" data-category="cleaner">
           <div class="product-img">
-            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/cleaner/case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d56-b786-e7222d5c4d9e_1800x1800_0007_case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d (2).webp" alt="1-Gal OxyTurf Cleaner and Deodorizer" />
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/cleaner/case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d56-b786-e7222d5c4d9e_1800x1800_0007_case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d(2).webp" alt="1-Gal OxyTurf Cleaner and Deodorizer" />
           </div>
           <div class="product-info">
             <p class="product-category">Cleaner & Deodorizer</p>
             <p class="product-name">Case of 1-Gal Rounds OxyTurf Cleaner and Deodorizer (4-Pack)</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
+            <p class="product-desc">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
             <p class="product-price">$259.95</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -330,7 +331,7 @@
           <div class="product-info">
             <p class="product-category">Cleaner & Deodorizer</p>
             <p class="product-name">1-Gal Round OxyTurf Turf Cleaner and Deodorizer</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
+            <p class="product-desc">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
             <p class="product-price">$64.95</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -343,7 +344,7 @@
           <div class="product-info">
             <p class="product-category">Sprayer</p>
             <p class="product-name">4-Gallon Backpack Sprayer</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Battery-powered 4-gallon backpack sprayer — no pumping, no wires required. Chemical-resistant polyethylene tank with adjustable spray gun and padded shoulder straps. Sprays up to 30 gallons per charge at 40 PSI with 1.0 GPM flow rate.</p>
+            <p class="product-desc">Battery-powered 4-gallon backpack sprayer — no pumping, no wires required. Chemical-resistant polyethylene tank with adjustable spray gun and padded shoulder straps. Sprays up to 30 gallons per charge at 40 PSI with 1.0 GPM flow rate.</p>
             <p class="product-price">$227.45</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -356,7 +357,7 @@
           <div class="product-info">
             <p class="product-category">Sprayer</p>
             <p class="product-name">.5 Gal. EZ-Pump Sprayer For OxyTurf Cleaner & Pet Odor Eliminator</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">OxyTurf's half-gallon EZ-Pump Sprayer pairs perfectly with any 1-gallon OxyTurf refill jug. Simply fill, pump to build pressure, and apply. Efficient, easy-to-use, and designed to minimize waste.</p>
+            <p class="product-desc">OxyTurf's half-gallon EZ-Pump Sprayer pairs perfectly with any 1-gallon OxyTurf refill jug. Simply fill, pump to build pressure, and apply. Efficient, easy-to-use, and designed to minimize waste.</p>
             <p class="product-price">$19.45</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -364,12 +365,12 @@
 
         <div class="product-card" data-category="bundle">
           <div class="product-img">
-            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/cleaner/case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d56-b786-e7222d5c4d9e_1800x1800_0007_case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d (1).webp" alt="1-Gal + EZ Pump Bundle" />
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/cleaner/case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d56-b786-e7222d5c4d9e_1800x1800_0007_case_of_rounds_1_1080x-v2_b5fa9add-5ce3-4d(1).webp" alt="1-Gal + EZ Pump Bundle" />
           </div>
           <div class="product-info">
             <p class="product-category">Bundle</p>
             <p class="product-name">1-Gal Round & EZ Pump Sprayer Bundle OxyTurf Turf Cleaner & Odor Eliminator</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Includes one 1-gallon OxyTurf refill jug and one EZ-Pump Sprayer. A convenient starter kit for first-time turf cleaning — everything you need to apply OxyTurf right out of the box.</p>
+            <p class="product-desc">Includes one 1-gallon OxyTurf refill jug and one EZ-Pump Sprayer. A convenient starter kit for first-time turf cleaning — everything you need to apply OxyTurf right out of the box.</p>
             <p class="product-price">$84.45</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -382,7 +383,7 @@
           <div class="product-info">
             <p class="product-category">Cleaner & Disinfectant</p>
             <p class="product-name">1-Gal Round OxyTurf Turf Cleaner Disinfectant and Pet Odor Eliminator</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
+            <p class="product-desc">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
             <p class="product-price">$64.95</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -395,7 +396,7 @@
           <div class="product-info">
             <p class="product-category">Bundle</p>
             <p class="product-name">1-Gal Battery-Powered Sprayer OxyTurf Turf Cleaner Disinfectant and Pet Odor Eliminator</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
+            <p class="product-desc">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
             <p class="product-price">$77.95</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
@@ -408,7 +409,7 @@
           <div class="product-info">
             <p class="product-category">Cleaner & Disinfectant</p>
             <p class="product-name">32 Oz OxyTurf Trigger Sprayer Turf Cleaner Disinfectant and Pet Odor Eliminator</p>
-            <p style="font-size:0.78rem; color:var(--slate-200); line-height:1.6; margin-bottom:10px;">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
+            <p class="product-desc">Designed as a one-step, non-acid, ready-to-use synthetic turf cleaner &amp; disinfectant. Removes grease &amp; grime and kills 99.9% of germs, viruses, and bacteria using stabilized hydrogen peroxide technology — safe for kids, pets, and plants.</p>
             <p class="product-price">$25.35</p>
             <a class="product-cta" href="tel:9185216958">Call to Order</a>
           </div>
