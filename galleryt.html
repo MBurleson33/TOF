@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | TOF Turf + Outdoors Oklahoma City</title>
+  <meta name="description" content="Browse TOF Turf + Outdoors project gallery — artificial turf installations and decorative curbing across Oklahoma City." />
+  <link rel="icon" type="image/webp" href="images/fav-icon.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF; --off-white: #F8F8F6; --border: #E4E3DF;
+      --slate-100: #8E8E8E; --slate-200: #5C5C5C; --ink: #161616;
+      --green: #008037; --green-mid: #006d2e;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Manrope', system-ui, sans-serif;
+      --nav-h: 72px; --r: 4px; --max: 1240px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 48px; gap: 40px; box-shadow: 0 2px 24px rgba(0,0,0,0.07); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .nav-logo-img { height: 48px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin-left: auto; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-200); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); font-weight: 700; }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { font-size: 0.8rem; font-weight: 600; color: var(--slate-200); text-decoration: none; transition: color 0.2s; }
+    .nav-phone:hover { color: var(--ink); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 7px; background: var(--green); color: var(--white); padding: 7px 14px; border-radius: var(--r); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--green-mid); }
+    .mob-menu-btn { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; margin-left: auto; padding: 4px; }
+    .mob-menu-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; }
+
+    /* PAGE HERO */
+    .page-hero { margin-top: var(--nav-h); background: var(--off-white); border-bottom: 1px solid var(--border); padding: 72px 48px; }
+    .page-hero .container { max-width: var(--max); margin: 0 auto; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-100); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--slate-100); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--ink); }
+    .breadcrumb span { color: var(--border); }
+    .breadcrumb span:last-child { color: rgba(0,128,55,0.4); font-weight: 600; }
+    .page-hero h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1.1; color: var(--ink); margin-bottom: 16px; }
+    .page-hero p { font-size: 1.05rem; color: var(--slate-200); max-width: 560px; line-height: 1.75; }
+
+    /* TABS */
+    .gallery-tabs {
+      padding: 40px 48px 0;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      gap: 4px;
+      border-bottom: 2px solid var(--border);
+    }
+    .tab-btn {
+      padding: 12px 28px;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: none; border: none; cursor: pointer;
+      color: var(--slate-100);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn:hover { color: var(--ink); }
+    .tab-btn.active { color: var(--green); border-bottom-color: var(--green); }
+
+    /* GALLERY */
+    .gallery-section { padding: 48px 48px 80px; }
+    .gallery-container { max-width: var(--max); margin: 0 auto; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .masonry {
+      columns: 3;
+      column-gap: 12px;
+    }
+    .masonry-tile {
+      break-inside: avoid;
+      margin-bottom: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .masonry-tile img {
+      width: 100%; display: block;
+      transition: transform 0.5s ease;
+    }
+    .masonry-tile:hover img { transform: scale(1.04); }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.92);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox-img {
+      max-width: 90vw; max-height: 88vh;
+      object-fit: contain; display: block;
+      border-radius: 2px;
+      transform: scale(0.95);
+      transition: transform 0.3s;
+    }
+    .lightbox.open .lightbox-img { transform: scale(1); }
+    .lightbox-close {
+      position: absolute; top: 24px; right: 28px;
+      color: rgba(255,255,255,0.7); font-size: 2rem;
+      background: none; border: none; cursor: pointer;
+      line-height: 1; transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--white); }
+    .lightbox-prev, .lightbox-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white); width: 48px; height: 48px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s;
+      font-size: 1.2rem;
+    }
+    .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+    .lightbox-counter {
+      position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+      font-size: 0.75rem; color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+    }
+
+    /* CTA */
+    .green-band { background: var(--green); padding: 72px 48px; text-align: center; }
+    .green-band h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 16px; }
+    .green-band p { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 36px; line-height: 1.75; }
+    .green-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--green); padding: 15px 32px; border-radius: var(--r); font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: background 0.2s; }
+    .btn-white:hover { background: var(--off-white); }
+    .btn-white-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--white); padding: 15px 32px; border-radius: var(--r); border: 1.5px solid rgba(255,255,255,0.5); font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: border-color 0.2s; }
+    .btn-white-outline:hover { border-color: rgba(255,255,255,0.9); }
+
+    /* FOOTER */
+    footer { background: var(--ink); color: var(--white); padding: 56px 48px 28px; }
+    .footer-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-brand p { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin: 16px 0 24px; max-width: 260px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); transition: all 0.2s; }
+    .footer-social a:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
+    .footer-social svg { width: 15px; height: 15px; fill: currentColor; }
+    .footer-col h4 { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; font-weight: 600; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 9px; }
+    .footer-col ul li a { font-size: 0.83rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-contact-item { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 6px; }
+    .footer-contact-item a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--white); }
+    .footer-bottom { max-width: var(--max); margin: 24px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      nav { padding: 0 24px; }
+      .page-hero { padding: 56px 24px; }
+      .gallery-tabs { padding: 32px 24px 0; }
+      .gallery-section { padding: 36px 24px 64px; }
+      .masonry { columns: 2; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions { display: none; }
+      .mob-menu-btn { display: flex; }
+      .masonry { columns: 1; }
+      .tab-btn { padding: 10px 16px; font-size: 0.72rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .green-band { padding: 56px 24px; }
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="images/TOF-Logo%20alt.webp" alt="TOF Turf + Outdoors" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html" class="active">Projects</a></li>
+      <li><a href="cleaning.html">Turf Care</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-phone" href="tel:9185216958">918-521-6958</a>
+      <a class="btn-primary" href="index.html#contact">Get a Free Quote</a>
+    </div>
+    <button class="mob-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Gallery</span>
+      </div>
+      <h1>Projects &amp; <em style="font-style:italic; color:var(--green);">Gallery.</em></h1>
+      <p>A look at some of our favorite installs across Oklahoma City — from backyard putting greens to commercial sports fields and decorative curbing.</p>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div style="max-width:var(--max); margin:0 auto; padding:0 48px;">
+    <div class="gallery-tabs" style="padding:40px 0 0; border-bottom:2px solid var(--border); display:flex; gap:4px;">
+      <button class="tab-btn active" onclick="switchTab('turf', this)">Artificial Turf</button>
+      <button class="tab-btn" onclick="switchTab('curbing', this)">Decorative Curbing</button>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery-section">
+    <div class="gallery-container">
+
+      <!-- TURF TAB -->
+      <div class="tab-panel active" id="tab-turf">
+        <div class="masonry">
+          <div class="masonry-tile" onclick="openLightbox('turf', 0)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Bocce-and-Putting-Green.webp" alt="Bocce and Putting Green" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 1)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Copper-Pointe-Dog-Park.webp" alt="Copper Pointe Dog Park" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 2)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Dogs-on-Yard-4.webp" alt="Dogs on Yard" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 3)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Landscaping-1140x723.webp" alt="Landscaping" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 4)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Lawn-and-Putting-Green-2.webp" alt="Lawn and Putting Green" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 5)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/rs%3Dw_984%2Ch_656%2B(1)%2Bcopy.webp" alt="Turf Installation" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 6)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/zz_027_27.webp" alt="Turf Project" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 7)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/zz_037.webp" alt="Turf Project" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 8)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/zz_2a.SBU-field.webp" alt="SBU Field" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('turf', 9)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/zz_Ava-Peter-Farrellys-014.webp" alt="Residential Turf" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <!-- CURBING TAB -->
+      <div class="tab-panel" id="tab-curbing">
+        <div class="masonry">
+          <div class="masonry-tile" onclick="openLightbox('curbing', 0)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Cocoa%2BBrown-%2B-Rustic%2BBrown%2Bcropped.webp" alt="Cocoa Brown + Rustic Brown" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 1)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Dusty%2BRose-%2B-Charcoal%2BGray%2B2.webp" alt="Dusty Rose + Charcoal Gray" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 2)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Dusty%2BRose-%2B-Charcoal%2BGray%2B6.webp" alt="Dusty Rose + Charcoal Gray" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 3)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Naples%2BRed-%2B-Autumn%2BRed.webp" alt="Naples Red + Autumn Red" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 4)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Ochre%2BBuff-%2B-Charcoal%2BGray.webp" alt="Ochre Buff + Charcoal Gray" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 5)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Ochre%2BBuff-%2B-Slate%2BGray.webp" alt="Ochre Buff + Slate Gray" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 6)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Prairie%2BStone-%2B-Walnut%2BBrown%2B1.webp" alt="Prairie Stone + Walnut Brown" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 7)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Prairie%2BStone-%2BCharcoal%2BGray.webp" alt="Prairie Stone + Charcoal Gray" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 8)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Rain%2BDrain%2B1-%2B-Straw%2BBuff-%2B-Walnut%2BBrown.webp" alt="Rain Drain + Straw Buff + Walnut Brown" loading="lazy" />
+          </div>
+          <div class="masonry-tile" onclick="openLightbox('curbing', 9)">
+            <img src="https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Sahara%2BSand-%2B-Charcoal%2BGray%2B2.webp" alt="Sahara Sand + Charcoal Gray" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+    <button class="lightbox-prev" onclick="prevImage()">&#8249;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <button class="lightbox-next" onclick="nextImage()">&#8250;</button>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="green-band">
+    <h2>Like What You See?</h2>
+    <p>Let's talk about your project. We'll put together a free estimate and walk you through your options.</p>
+    <div class="green-actions">
+      <a class="btn-white" href="tel:9185216958">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.17 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.16a16 16 0 006.29 6.29l1.42-1.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        918-521-6958
+      </a>
+      <a class="btn-white-outline" href="mailto:bfassio@tofturfandoutdoors.com">Email Us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" style="display:inline-block;">
+          <img src="images/TOF-Logo.webp" alt="TOF Turf + Outdoors" style="height:52px; width:auto; display:block;" />
+        </a>
+        <p>Family-owned artificial turf installation serving Oklahoma City and surrounding areas.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="1.8" stroke="currentColor" fill="none"/><circle cx="12" cy="12" r="4" stroke-width="1.8" stroke="currentColor" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Projects &amp; Gallery</a></li>
+          <li><a href="cleaning.html">Turf Care</a></li>
+          <li><a href="article.html">Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#contact">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p class="footer-contact-item">13505 Railway Dr. Unit H<br />Oklahoma City, OK 73114</p>
+        <p class="footer-contact-item"><a href="tel:9185216958">918-521-6958</a></p>
+        <p class="footer-contact-item"><a href="mailto:bfassio@tofturfandoutdoors.com">bfassio@tofturfandoutdoors.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TOF Turf + Outdoors. All rights reserved.</p>
+      <p>created by <a href="https://thirtythreevisuals.com" target="_blank">thirtythree visuals</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      btn.classList.add('active');
+      currentTab = tab;
+    }
+
+    // Lightbox
+    let currentTab = 'turf';
+    let currentIndex = 0;
+
+    const turfImages = [
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Bocce-and-Putting-Green.webp', alt: 'Bocce and Putting Green' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Copper-Pointe-Dog-Park.webp', alt: 'Copper Pointe Dog Park' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Dogs-on-Yard-4.webp', alt: 'Dogs on Yard' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Landscaping-1140x723.webp', alt: 'Landscaping' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/Lawn-and-Putting-Green-2.webp', alt: 'Lawn and Putting Green' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/rs%3Dw_984%2Ch_656%2B(1)%2Bcopy.webp', alt: 'Turf Installation' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/zz_027_27.webp', alt: 'Turf Project' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/zz_037.webp', alt: 'Turf Project' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/zz_2a.SBU-field.webp', alt: 'SBU Field' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/turf/zz_Ava-Peter-Farrellys-014.webp', alt: 'Residential Turf' },
+    ];
+
+    const curbingImages = [
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Cocoa%2BBrown-%2B-Rustic%2BBrown%2Bcropped.webp', alt: 'Cocoa Brown + Rustic Brown' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Dusty%2BRose-%2B-Charcoal%2BGray%2B2.webp', alt: 'Dusty Rose + Charcoal Gray' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Dusty%2BRose-%2B-Charcoal%2BGray%2B6.webp', alt: 'Dusty Rose + Charcoal Gray' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Naples%2BRed-%2B-Autumn%2BRed.webp', alt: 'Naples Red + Autumn Red' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Ochre%2BBuff-%2B-Charcoal%2BGray.webp', alt: 'Ochre Buff + Charcoal Gray' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Ochre%2BBuff-%2B-Slate%2BGray.webp', alt: 'Ochre Buff + Slate Gray' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Prairie%2BStone-%2B-Walnut%2BBrown%2B1.webp', alt: 'Prairie Stone + Walnut Brown' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Prairie%2BStone-%2BCharcoal%2BGray.webp', alt: 'Prairie Stone + Charcoal Gray' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Rain%2BDrain%2B1-%2B-Straw%2BBuff-%2B-Walnut%2BBrown.webp', alt: 'Rain Drain + Straw Buff + Walnut Brown' },
+      { src: 'https://raw.githubusercontent.com/MBurleson33/TOF/main/images/curbing/Sahara%2BSand-%2B-Charcoal%2BGray%2B2.webp', alt: 'Sahara Sand + Charcoal Gray' },
+    ];
+
+    function getImages() { return currentTab === 'turf' ? turfImages : curbingImages; }
+
+    function openLightbox(tab, index) {
+      currentTab = tab;
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeLightboxOnBg(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+
+    function updateLightbox() {
+      const images = getImages();
+      const img = document.getElementById('lightbox-img');
+      img.src = images[currentIndex].src;
+      img.alt = images[currentIndex].alt;
+      document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + images.length;
+    }
+
+    function nextImage() {
+      const images = getImages();
+      currentIndex = (currentIndex + 1) % images.length;
+      updateLightbox();
+    }
+
+    function prevImage() {
+      const images = getImages();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateLightbox();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
